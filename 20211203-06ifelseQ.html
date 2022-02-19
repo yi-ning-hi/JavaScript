@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="info"></div>
+   <script>
+
+        let age = +prompt('How old are you?')
+        
+        // console.log(age);//輸出出來結果會是字串
+        // console.log(+age);
+        // // !isNaN(+age) ? ((age>=18) ? info.innerHTML='請進':info.innerHTML='請回進') : info.innerHTML='請輸入數字';
+        // info.innerHTML=!isNaN(+age) ? ((age>=18) ? '請進':'請回進') : '請輸入數字';
+
+        if (isNaN(age)){
+            info.innerHTML='請輸入數字';
+        }else if(age>=18){
+            info.innerHTML='請進';
+        }else{
+            info.innerHTML='請回進';
+        }
+
+
+
+       console.log(((~0xff) & 0xffffff).toString(16));
+   </script>
+
+</body>
+</html>

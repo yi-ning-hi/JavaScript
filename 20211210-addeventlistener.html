@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .rect {
+            width: 200px;
+            height: 200px;
+            background-color: darkkhaki;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="rect"></div>
+    <div class="rect" style="left:300px"></div>
+
+    <script>
+        const [r1,r2] = document.querySelectorAll('.rect')
+const listener1 = function(event){
+            console.log(2);
+        };
+
+        r1.addEventListener('click',function(event){
+            console.log(1);
+        });
+        r1.addEventListener('click',listener1);
+        r2.addEventListener('click',function(event){
+            console.log(2);
+        });
+    </script>
+</body>
+
+</html>

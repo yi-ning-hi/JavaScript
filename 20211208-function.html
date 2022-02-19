@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+
+    <script>
+
+        function func1(a, b = 10) {
+            console.log(arguments);
+            console.log([...arguments]);//轉成array
+            return a * b
+        }
+        console.log(func1(3, 5, 7));
+        console.log(func1(3));
+
+
+        console.log('--------');
+
+
+        //rest operator
+        function func2(a, ...b) {
+            console.log({ a, b })
+            return a
+        }
+        console.log(func2(3, 5, 7));
+        console.log(func2(3));
+
+        console.log('--------')
+        const ar = [3, 4, 5, 6, 7];
+        console.log(Math.max(...ar));
+
+    </script>
+</body>
+
+</html>

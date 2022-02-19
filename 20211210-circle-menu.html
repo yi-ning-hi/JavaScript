@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .rect {
+            width: 600px;
+            height: 600px;
+            background-color: darkkhaki;
+            position: relative;
+        }
+
+
+        .ball {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-color: rgb(33, 48, 7);
+            border-radius: 50%;
+            color: azure;
+            line-height: 40px;
+            text-align: center;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="rect">
+
+    </div>
+
+
+
+    <script>
+        const rect = document.querySelector('.rect');
+
+        const ballNum = 12;
+        const clockNum = 2 * Math.PI / ballNum;
+        const bData = [];
+        for (i = 0; i < ballNum; i++) {
+            const b = document.createElement('div');
+            b.className = 'ball';
+            b.innerHTML = (i + 1).toString();
+            // b.style.left = '300px';
+            // b.style.top = '300px';
+            b.style.left = 300 + 200 * Math.cos(clockNum*i-Math.PI/3),
+            b.style.left = 300 + 200 * Math.cos(clockNum*i-Math.PI/3),
+            rect.append(b);
+            // bData.push(
+
+            // )
+        }
+    </script>
+
+</body>
+
+</html>

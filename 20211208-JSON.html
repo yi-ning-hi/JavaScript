@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let people = [
+            { name: 'Cindy', age: 23 },
+            { name: 'Amy', age: 20 },
+            { name: 'David', age: 24 },
+            { name: 'Kan', age: 27 },
+            { name: 'John', age: 27 },
+            { name: 'Gina', age: 27 }
+        ];
+
+
+        const p2 = JSON.parse(JSON.stringify(people));
+        
+        p2[0].name = 'Tina';
+
+        console.log(people);
+        console.log(p2);
+    </script>
+</body>
+</html>

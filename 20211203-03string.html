@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="info"></div>
+
+    <textarea name="" id="ta" cols="30" rows="10"></textarea>
+    
+    <script>
+        let names = 'david\ndavid\ndavid';
+        info.innerHTML = names;//在html會顯現空格
+        ta.value = names;//在表單裡面不會用html呈現方式，所以會呈現換行
+
+        // document.querySelector('#info').innerHTML = ('you say "yes"');
+        info.innerHTML = ('you say "yes"');
+        console.log("you say 'yes'");
+        console.log("you say \"yes\"");
+        console.log("you say \\yes\\");
+        
+    </script>
+</body>
+</html>

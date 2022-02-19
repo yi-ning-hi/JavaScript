@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const ar = [2,3,4,5,6,7,8,9,10];
+
+        const ar1 = ar.filter(function(currentValue,index){
+            return currentValue % 2 === 0;
+        });
+
+        const ar2 = ar.map(function(currentValue ,index){ //currentValue當前元素.index當前索引值
+            return currentValue * currentValue;
+        });
+
+        ar1[2] = 11; //參照類型，所以會覆蓋到ar
+
+        console.log(ar1)
+        console.log(ar2)
+    </script>
+</body>
+</html>

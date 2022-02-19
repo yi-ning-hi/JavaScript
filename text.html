@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        .clock {
+            width: 800px;
+            height: 800px;
+            margin: 40px auto;
+            background-color: black;
+            border-radius: 50%;
+            position: relative;
+        }
+        .scale-cr {
+            position: absolute;
+            left: 400px;
+            top: 400px;
+        }
+        /* 在下方JS我會利用for迴圈來讓scale-cr(圓心的感覺)旋轉6度60次 */
+        .scale {
+            position: absolute;
+            width: 2px;
+            height: 30px;
+            background-color: white;
+            left: -1px;
+            top: -400px; 
+            
+        }
+        .ball {
+            font-size: 3rem;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 100px;
+            color: white;
+            position: absolute;
+            
+        }
+        .hand {
+            position: absolute;
+            top: 400px;
+            left: 400px;  
+        }
+        .sec-hand {
+            position: absolute;      
+            width: 6px;
+            height: 360px;
+            border-radius: 3px;
+            background-color: red;
+            left: -3px;
+            top: -357px;    
+        }
+        .min-hand {
+            position: absolute;  
+            width: 8px;
+            height: 350px;
+            border-radius: 4px;
+            background-color: rgb(241, 241, 241);
+            left: -4px;
+            top: -346px;    
+        }
+        .hr-hand {
+            position: absolute;
+            width: 10px;
+            height: 250px;
+            border-radius: 5px;
+            background-color: rgb(255, 255, 255);
+            left: -5px;
+            top: -245px;    
+        }
+    </style>
+</head>
+<body>
+    <div class="clock">
+        <div class="scale-area">
+            <div class="scale-cr">
+                <!-- 我們會用Javascript在裡面加 <div class="scale"></div>  -->
+            </div>
+        </div>
+        <div class="hand" id="sec_hand">
+            <div class="sec-hand"></div>
+        </div>
+        <div class="hand" id="hr_hand">
+            <div class="hr-hand"></div>
+        </div>
+        <div class="hand" id="min_hand">
+            <div class="min-hand"></div>
+        </div>
+        
+    </div>
+            <!-- scale-cr可以想成是看不見的圓心，我們的刻度就是先做出第一條，然後我設定那一條的class為scale。然後每六度再製造一條，最後再調整height就能得到客度囉  -->
+
+    <script>
+        const scaleArea = document.querySelector('.scale-area');
+        // 下面三個是時針.分針.秒針的變數
+        const sec_hand = document.querySelector('#sec_hand');
+        const min_hand = document.querySelector('#min_hand');
+        const hr_hand = document.querySelector('#hr_hand');
+        // 下面三個變數是在做數字的部分
+        const clock = document.querySelector('.clock');
+        const ballNum = 12; /*這邊看想要幾顆球圍成一圈，因為是時鐘所以我們先設12顆*/
+        const angUnit = 2*Math.PI/ballNum;
+        /*球與球之間的角度設為angUnit變數，2*PI就是一圈的角度也就是360度，像我們只要12顆，那球與球之間去平分360度，得到的就是30度(等於PI除以6)*/
+
+        // 以下是製造刻度的JS部分
+        let str = '';
+        for(i=0;i<60;i++){   /*這邊的迴圈是因為刻度有60個*/
+            if(i%5==0){      
+                str +=`<div class="scale-cr" style="transform:rotate(${6*i}deg)">
+                        <div class="scale" style="width:5px; height:40px"></div> 
+                        </div>`;
+            }else{
+                str +=`<div class="scale-cr" style="transform:rotate(${6*i}deg)">
+                        <div class="scale"></div>
+                        </div>`;
+            }
+        }
+        /*一開始會先想怎麼讓60條線出來，所以要先用html做一條模擬絕對定位的數值，
+        之後可以不用寫在html裡，因為我們要用JS直接寫出來，才能加上每條要旋轉6度的功能
+        ，這樣迴圈跑完，60條不同角度的線就出來了，然後你再去設定height(刻度長度)，或是width(刻度粗度)
+        因為我們發現時鐘在5.10.15.20.25.....都會比較長一點粗一點，這時候就可以用判斷式來做區別，上面的判斷式i%5=0
+        的意思是當i除以5餘數為0時，就讓刻度寬一點，長一點，這個值你可以隨自己喜歡更改*/
+        scaleArea.innerHTML = str;
+        // 下面的for迴圈是為了讓12顆球圍成一個圓
+        for(i=0;i<ballNum;i++){
+            const b = document.createElement('div');
+            b.className = 'ball';
+            b.innerHTML = i+1;
+            b.style.left = 350+330*Math.cos(angUnit*i-Math.PI/3)+'px';
+            b.style.top = 350+330*Math.sin(angUnit*i-Math.PI/3)+'px';
+            clock.append(b);
+        }
+        
+        function runClock(){
+            const now = new Date;
+            const s = now.getSeconds(); /*將現在的秒數設定為s變數*/
+            const m = now.getMinutes(); /*將現在幾分設定為m變數*/
+            const hr = now.getHours();  /*將現在幾點設定為hr變數*/
+            const ms = now.getMilliseconds(); 
+            sec_hand.style.transform = `rotate(${ms*6/1000+s*6}deg)`;
+            /*1秒轉六度，為了看起來不會一格一格動，所以我們設定毫秒也會動極微小的角度*/
+            min_hand.style.transform= `rotate(${m*6}deg)`; /*1分鐘轉6度*/
+            hr_hand.style.transform= `rotate(${hr*30+m*0.5}deg)`;/*1小時轉30度，但其實每分鐘時針也會移動0.5度，所以要加上去*/
+            setTimeout(runClock,30);/*每30毫秒，也就是0.03秒會觸發一次，跑一次函式內的內容。*/
+        }
+        runClock();
+
+    </script>
+</body>

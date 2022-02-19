@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let name = "bill";
+        let age = 34;
+
+        const p1 = {
+            name,
+            age,
+        }
+
+        // const p2 = Object.assign({},p1);//淺層複製
+        const p2 ={...p1}; //展開運算子，淺層複製
+        p2.name = "karl";
+        const p3 ={...p1,name:"ning"};//spread operator
+        console.log(p1);
+        console.log(p2);
+        console.log(p3);
+    </script>
+</body>
+</html>

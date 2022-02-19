@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .clock {
+            width: 600px;
+            height: 600px;
+            background-color: darkkhaki;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .hand {
+            position: absolute;
+            left: 300px;
+            top: 300px;
+        }
+
+        .sec-hand {
+            position: absolute;
+            width: 6px;
+            height: 280px;
+            background-color: darkolivegreen;
+            left: -3px;
+            top: -277px;
+        }
+
+        .min-hand {
+            position: absolute;
+            width: 10px;
+            height: 180px;
+            background-color: rgb(33, 48, 7);
+            left: -5px;
+            top: -175px;
+        }
+        .hr-hand {
+            position: absolute;
+            width: 8px;
+            height: 130px;
+            background-color: rgb(33, 48, 7);
+            left: -4px;
+            top: -122px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="" id="info"></div>
+    <div class="clock">
+        <div class="hand" id="sec-hand">
+            
+            <div class="sec-hand"></div>
+        </div>
+        <div class="hand" id="min-hand">
+            <div class="min-hand"></div>
+        </div>
+    </div>
+    <script>
+        const sec_hand = document.querySelector('#sec-hand');
+        const min_hand = document.querySelector('#min-hand');
+
+
+
+        function runclock() {
+            const now = new Date;
+            info.innerHTML = now.toString().split(' ')[4];
+            const m = now.getMinutes();
+
+            const s = now.getSeconds();
+            sec_hand.style.transform = `rotate(${s * 6}deg)`;
+            setTimeout(runclock, 1000)
+            min_hand.style.transform = `rotate(${m * 6}deg)`;
+            setTimeout(runclock, 1000)
+        }
+
+        runclock();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let people = [
+            { name: 'Cindy', age: 23 ,gender:'female'},
+            { name: 'Amy', age: 20 ,gender:'female'},
+            { name: 'David', age: 24 ,gender:'male'},
+            { name: 'Kan', age: 27 ,gender:'male'},
+            { name: 'John', age: 27 ,gender:'male'},
+            { name: 'Gina', age: 27 ,gender:'female'}
+        ];
+
+        const girl = people.filter(function(el){
+            return el.gender === 'female';
+        })
+
+        const ar2 = people.map(function(el){
+            return el.age+10;
+        })
+
+    /////////
+    
+        console.log(girl);
+        console.log(ar2);
+    </script>
+</body>
+</html>

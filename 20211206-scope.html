@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="number" name="" id="myInput">
+
+    <button onclick="myClick()">click</button>
+
+    <div id="info"></div>
+
+    <script>
+        const myInput = document.querySelector("#myInput");
+        const info = document.querySelector("#info");
+        let hi = "hello"
+        function myClick() {
+            let age = + myInput.value;
+            let hi = "hihihi"
+            if (age >= 18) {
+
+                var a = 10;//受function括號限制
+                let b = 20;//const,let都會受最近的大括號範圍限制，只在括號範圍有效
+
+                info.innerHTML = "請進";
+            } else {
+
+                var c = 30;
+                
+
+                info.innerHTML = "請回去";
+            }
+            let b = 20;
+            let d = 40;
+            console.log(a, b, c, d);
+            console.log(hi);
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>

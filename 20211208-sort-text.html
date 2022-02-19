@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="orderBy='alphAsc'; renderTable()">姓名升冪</button>
+    <button onclick="orderBy='alphDesc'; renderTable()">姓名降冪</button>
+    <button onclick="orderBy='ageAsc';renderTable()">年齡升冪</button>
+    <button onclick="orderBy='ageDesc';renderTable()">年齡降冪</button>
+    <table>
+        <thead>
+            <tr>
+                <td>姓名</td>
+                <td>年齡</td>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+    <script>
+        let orderBy = ''
+        const tbody = document.querySelector('tbody');
+
+        let people = [
+            { name: 'Cindy', age: 23 },
+            { name: 'Amy', age: 20 },
+            { name: 'David', age: 24 },
+            { name: 'Kan', age: 27 },
+            { name: 'John', age: 27 },
+            { name: 'Gina', age: 27 }
+        ];
+
+        function renderTable() {
+            people.sort(function (a, b) {
+                switch (orderBy) {
+                    case 'alphAsc':
+                        return b.name > a.name ? -1 : 1;
+                    case 'alphDesc':
+                        return b.name < a.name ? -1 : 1;
+                    case 'ageAsc':
+                        return a.age - b.age;
+                    case 'ageDesc':
+                        return b.age - a.age;
+
+                }
+            })
+            let str = ''
+            for (let p of people) {
+                str += `
+            <tr>
+                <td>${p.name}</td>
+                <td>${p.age}</td>
+            </tr>`
+            }
+            tbody.innerHTML = str;
+        }
+
+
+
+
+
+
+
+
+
+
+
+        // function alphAsc(){
+        //     people.sort(function(a,b){
+        //         return b.name >a.name? -1:1;
+        //     })
+        // let str=''
+        // for(let p of people){
+        //     str +=`
+        //     <tr>
+        //         <td>${p.name}</td>
+        //         <td>${p.age}</td>
+        //     </tr>`
+        // }
+        // tbody.innerHTML = str;
+        // }
+
+        // function alphDesc(){
+        //     people.sort(function(a,b){
+        //         return b.name < a.name? -1:1;
+        //     })
+        // let str=''
+        // for(let p of people){
+        //     str +=`
+        //     <tr>
+        //         <td>${p.name}</td>
+        //         <td>${p.age}</td>
+        //     </tr>`
+        // }
+        // tbody.innerHTML = str;
+        // }
+
+
+        // function ageAsc(){
+        //     people.sort(function(a,b){
+        //         return a.age -b.age;
+        //     })
+        // let str=''
+        // for(let p of people){
+        //     str +=`
+        //     <tr>
+        //         <td>${p.name}</td>
+        //         <td>${p.age}</td>
+        //     </tr>`
+        // }
+        // tbody.innerHTML = str;
+        // }
+
+        // function ageDesc(){
+        //     people.sort(function(a,b){
+        //         return b.age - a.age;
+        //     })
+        // let str=''
+        // for(let p of people){
+        //     str +=`
+        //     <tr>
+        //         <td>${p.name}</td>
+        //         <td>${p.age}</td>
+        //     </tr>`
+        // }
+        // tbody.innerHTML = str;
+        // }
+    </script>
+</body>
+
+</html>

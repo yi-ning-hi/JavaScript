@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .rect{
+            position: relative;
+            width: 800px;
+            height: 600px;
+            background-color: aquamarine;
+
+        }
+        .ball{
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background-color:burlywood;
+            border-radius: 50%;
+            color: white;
+            text-align: center;
+            line-height: 60px;
+        }
+    </style>
+</head>
+<body>
+    <div class="rect"></div>
+
+    <script>
+        const rect =document.querySelector('.rect');
+        let b,i;
+        // b=document.createElement('div');//建立一個elment，但目前存在記憶體
+        // b.className = 'ball';
+        // b.innerHTML = 'i';
+        // b.style.left = '200px';
+        // b.style.top = '50px';
+        // rect.append(b);//把創建的b(element)，放入rect這個dom裡
+        
+
+        for(i=0;i<10;i++){
+        b=document.createElement('div');//建立一個elment，但目前存在記憶體
+        b.className = 'ball';
+        b.innerHTML = i+1;
+        b.style.left = 10+(i*70)+'px';
+        b.style.top = '50px';
+        rect.append(b);//把創建的b(element)，放入rect這個dom裡
+        }
+    </script>
+</body>
+</html>

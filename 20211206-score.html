@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="number" name="" id="myInput" min="0" max="100" ,>
+
+    <button onclick="myClick()">click</button>
+
+    <div id="info"></div>
+
+    <script>
+
+        // function myClick() {
+        //     let score = + myInput.value;
+        //     let g;
+        //     if(score>=100){
+        //         g = "A"
+        //     }else if(score>=90){
+        //         g = "B"
+
+        //     }else if(score>=80){
+        //         g = "C"
+
+        //     }else if(score>=70){
+        //         g = "D"
+
+        //     }else if(score>=60){
+        //         g = "E"
+
+        //     }else{
+        //         g = "F"
+
+        //     }
+        //     info.innerHTML = g;
+        // }
+
+        function myClick() {
+            let score = Math.floor(+ myInput.value / 10);
+            let g;
+            switch (score) {
+                case 10: //case標籤沒有括號
+                case 9:
+                    g = "A"
+                    break;
+                case 8:
+                    g = "B"
+                    break;
+                case 7:
+                    g = "C"
+                    break;
+                case 6:
+                    g = "D"
+                    break;
+                default:
+                    g = "F"
+            }
+            info.innerHTML = g;
+        }
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // global,全域
+        // var有提升功能
+        // 變數會變成window的屬性 （有可能會覆蓋到window內建的功能）
+
+        var a; /*宣告變數,var會提升,但值不會跟著提升*/
+        a = 100 ;
+
+        console.log(a);
+        
+        var alert = 123;
+        console.log(alert);
+    </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .rect {
+            width: 300px;
+            height: 300px;
+            background-color: darkkhaki;
+            position: absolute;
+        }
+
+
+        .big-ball {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: rgb(93, 147, 0);
+            border-radius: 50%;
+            left: 50px;
+            top:100px;
+
+        }
+        .ball{
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background-color: rgb(33, 48, 7);
+            border-radius: 50%;
+            left:20px;
+            top:20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="rect">
+        <div class="big-ball">
+            <div class="ball"></div>
+        </div>
+    </div>
+    <div class="rect" style="left: 400px;"></div>
+    <script>
+        const [r1,r2] = document.querySelectorAll('.rect');
+        const big = document.querySelector('.big-ball');
+        const ball = document.querySelector('.ball');
+        const handler = function(event){
+            console.log(event.type,event.eventPhase);
+            console.log(event.currentTarget,event.target);
+            console.log(this);
+        };
+
+        // r1.addEventListener('click',function(event){
+        //     console.log('r1',event.type,event.eventPhase);
+        //     console.log(event.currentTarget,event.target);
+        //     console.log(this);
+        // })
+
+        // big.addEventListener('click',function(event){
+        //     console.log('big',event.type,event.eventPhase);
+        //     console.log(event.currentTarget,event.target);
+        //     console.log(this);
+        // })
+        r1.addEventListener('click',handler);
+        r1.addEventListener('click',handler,true);
+        big.addEventListener('click',handler);
+        big.addEventListener('click',handler,true);
+        ball.addEventListener('click',handler);
+        ball.addEventListener('click',handler,true);
+
+    </script>
+</body>
+</html>

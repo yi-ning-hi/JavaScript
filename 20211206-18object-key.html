@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        const p1 = {
+            name: 'bill',
+            age: 20
+        };
+
+        const p2 = {
+            name: 'ken',
+            age: 7
+        };
+        // p1.name = p2.name;
+        let { name } = p1; //展開設定
+        console.log(p1);
+        ({ name } = p2);
+
+
+        console.log(name);
+
+
+
+    </script>
+</body>
+
+</html>

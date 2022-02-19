@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tb{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div id="info">123</div>
+    <div class="info">456</div>
+    <table class="tb">
+        <tr class="tt">
+            <td class="cc">1</td>
+            <td class="tb">2</td>
+            <td class="tb">3</td>
+        </tr>
+        <tr>
+            <td class="cc">4</td>
+            <td class="tb">5</td>
+            <td class="tb">6</td>
+        </tr>
+    </table>
+    <script>
+        let info1 = document.querySelector('.info');
+        let info2 = document.querySelector('#info');
+        console.log(info1.innerHTML);
+        console.log(info2.innerHTML);
+
+
+        let td1 = document.querySelector('.cc');
+        console.log(td1.outerHTML);
+        // querySelector透過css選擇器的語法拿到 只會抓到第一個遇到的，類型是element
+
+        let td2 = document.querySelectorAll('.cc');
+        console.log(td2);
+        // querySelectorAll透過css選擇器的語法拿到 會抓到全部，類型叫NodeList靜態集合
+
+        // HTMLCollection、querySelectorAll都是集合(內建類型)
+
+        // document.querySelector('tr.tt').querySelector('.cc')
+        td2[1].style.color = 'green';
+        td1.style.backgroundColor = 'red'
+        console.log(td2[1].constructor.name);
+    </script>
+</body>
+</html>

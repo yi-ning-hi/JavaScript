@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        const s1 = Symbol('my symbol'),
+            s2 = Symbol('my symbol');
+        const s3 = s1;
+        const s4 = new Object('123');
+        const s5 = new Object('123');
+        console.log(s4 == s5);
+        console.log(s1 == s2);
+        console.log(s1 == s3);
+
+        const gender = 'male';
+        const person ={
+            name:'amy',
+            age:12,
+            gender:gender,
+            [gender]:123, //以變數值當屬性名稱
+            [s1]:'hello symbol',
+        };
+        for(let d in person){
+            console.log(d,person[d]);
+        }
+        console.log(person);
+
+
+
+    </script>
+</body>
+
+</html>

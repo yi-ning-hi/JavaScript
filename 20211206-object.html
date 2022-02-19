@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const p1 = {
+            name:'bill',
+            age:23
+        };
+
+        let {name,age} = p1;//展開設定,變數名稱要與p1的屬性名稱一樣
+        let {name:myName,age:myAge} = p1;//展開設定
+
+        console.log({name,age});//object的呈現方式
+        console.log({myName,myAge});
+    </script>
+</body>
+</html>
